@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM</title>
+</head>
+<body>
+    <h3>這是HTML DOM 的介紹</h3>
+    <div id = "content"> HTML DOM就是 Window物件</div>
+    <div>
+        <!--HTML 單行輸入框-->
+        <!--如何設定單行輸入框中的預設文字-->
+        <input id = "input" type = "text" value = "hello" />
+        <button onclick = "check();">Check</button>
+    </div>
+    <div id = "output"></div>
+    <button onclick = "change();">change</button>
+
+    <div>
+        <img id = "img" onclick = "update();" src = "landscape1.jpg" 
+        style = "transition : width 3s, height 3s, opacity 3s; width : 100px; height : 100px; opacity : 0.2"/>
+    </div>
+
+    <script>
+        function update(){
+            let img = document.querySelector("#img");
+            img.src = "landscape2.jpg";
+            img.style.width = "500px";
+            img.style.height = "500px";
+            img.style.opacity = "1";
+        }
+        function check(){
+            //取得想要的標籤
+            let INPUT = document.querySelector("#input");
+            console.dir(INPUT);
+            //操作它
+            console.log(INPUT.value);
+            // 把使用者打得字後面加上World顯示在網頁的另一個標籤裡
+            let words = INPUT.value + "World";
+            //取得想要的標籤
+            let OUTPUT = document.querySelector("#output");
+            OUTPUT.innerHTML = words;
+        }
+        function change(){
+            let element = document.querySelector("#content");
+            element.innerHTML = "改變過的內容";
+        }
+    </script>
+</body>
+</html>
